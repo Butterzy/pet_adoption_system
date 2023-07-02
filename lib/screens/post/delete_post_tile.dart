@@ -787,7 +787,7 @@ class _DeletePostTileState extends State<DeletePostTile> {
                                                 registerData, context)
                                             .whenComplete(() {
                                           Navigator.of(context).pop();
-                                          
+
                                           showSuccessSnackBar(
                                               'Request Sent !', context);
                                         }).catchError((e) => showFailedSnackBar(
@@ -812,7 +812,6 @@ class _DeletePostTileState extends State<DeletePostTile> {
                                 borderRadius: BorderRadius.circular(20.0),
                                 color: Colors.indigo[100],
                               ),
-                              
                               child: Row(
                                 children: [
                                   _buildContact('Contact Post Owner', context),
