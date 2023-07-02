@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:pet_adoption_system/services/auth.dart';
 import 'package:pet_adoption_system/shared/constants.dart';
@@ -79,6 +79,8 @@ class _SignInState extends State<SignIn> {
                           bottomLeft: Radius.circular(50),
                         ),
                       ),
+                      height: 150,
+                      width: deviceSize.width - 300,
                       child: Center(
                         child: Text(
                           'Pet Adoption System',
@@ -89,14 +91,12 @@ class _SignInState extends State<SignIn> {
                                   .copyWith(color: Colors.white),
                         ),
                       ),
-                      height: 150,
-                      width: deviceSize.width - 300,
                     )),
 
                 Positioned(
                     top: 220.0,
                     left: 20.0,
-                    child: Container(
+                    child: SizedBox(
                       width: 300,
                       height: 300,
                       child: Image.asset(
@@ -275,7 +275,7 @@ class _SignInState extends State<SignIn> {
       onSaved: (value) {
         controller.text = value!;
       },
-      style: TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
           labelText: 'Password',
           labelStyle: const TextStyle(color: Colors.white),

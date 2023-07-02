@@ -1,10 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:pet_adoption_system/mainpage.dart';
-import 'package:pet_adoption_system/models/post.dart';
 import 'package:pet_adoption_system/screens/pet/delete_pet.dart';
 import 'package:pet_adoption_system/screens/post/post.dart';
 import 'package:pet_adoption_system/screens/pet/edit_pet.dart';
-import 'package:pet_adoption_system/services/pet_database.dart';
 import 'package:provider/provider.dart';
 import 'package:pet_adoption_system/models/access_right.dart';
 
@@ -12,7 +11,6 @@ import 'package:pet_adoption_system/models/pet.dart';
 
 import 'package:pet_adoption_system/models/user.dart';
 
-import 'package:pet_adoption_system/shared/constants.dart';
 
 class PetTile extends StatelessWidget {
   final PetData petData;

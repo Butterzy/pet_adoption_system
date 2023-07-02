@@ -1,10 +1,9 @@
-import 'dart:io';
+
+// ignore_for_file: must_be_immutable
 
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:pet_adoption_system/models/pet.dart';
-import 'package:pet_adoption_system/screens/pet/pet_image.dart';
 import 'package:pet_adoption_system/services/pet_database.dart';
 import 'package:pet_adoption_system/shared/constants.dart';
 

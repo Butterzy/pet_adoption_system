@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pet_adoption_system/models/post.dart';
 import 'package:pet_adoption_system/models/user.dart';
 import 'package:pet_adoption_system/screens/post/delete_post_tile.dart';
-import 'package:pet_adoption_system/services/pet_database.dart';
 import 'package:pet_adoption_system/services/post_database.dart';
 import 'package:pet_adoption_system/shared/constants.dart';
 import 'package:provider/provider.dart';

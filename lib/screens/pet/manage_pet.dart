@@ -16,7 +16,7 @@ import '../../widgets/widgets.dart';
 enum PetSwitch { allpet, mypet }
 
 class ManagePetScreen extends StatefulWidget {
-  ManagePetScreen({Key? key}) : super(key: key);
+  const ManagePetScreen({Key? key}) : super(key: key);
 
   @override
   State<ManagePetScreen> createState() => _ManagePetScreenState();
@@ -79,17 +79,17 @@ class _ManagePetScreenState extends State<ManagePetScreen> {
                   ),
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.indigo, //background color of button
+                          backgroundColor: Colors.indigo, //background color of button
                           //border width and color
                           elevation: 3, //elevation of button
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                             //to set border radius to button
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(150),
                                 topRight: Radius.circular(150)),
                           ),
                           padding:
-                              EdgeInsets.all(20) //content padding inside button
+                              const EdgeInsets.all(20) //content padding inside button
                           ),
                       onPressed: () {
                         Navigator.push(
@@ -98,12 +98,12 @@ class _ManagePetScreenState extends State<ManagePetScreen> {
                               builder: (context) => RegisterPet()),
                         );
                       },
-                      child: Text("Create Pet")),
+                      child: const Text("Create Pet")),
                 )),
             Positioned(
               top: 60.0,
               left: 30,
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width - 100,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,7 +125,7 @@ class _ManagePetScreenState extends State<ManagePetScreen> {
             Positioned(
                 bottom: 100.0,
                 left: 140,
-                child: Container(
+                child: SizedBox(
                     height: 530,
                     width: 530,
                     child: Image.asset('assets/images/cat1.png'))),
@@ -139,19 +139,19 @@ class _ManagePetScreenState extends State<ManagePetScreen> {
                 child: MultiProvider(
                   providers: [
                     StreamProvider<List<PetData>>.value(
-                        initialData: [],
+                        initialData: const [],
                         value: PetDatabaseService().petdatalist),
                     StreamProvider<List<CommitteeData>>.value(
-                        initialData: [],
+                        initialData: const [],
                         value: PetDatabaseService().committeeDatalist),
                     StreamProvider<List<ApplicationData>>.value(
-                        initialData: [],
+                        initialData: const [],
                         value: PetDatabaseService().applicationDataList),
                     StreamProvider<List<function>>.value(
-                        initialData: [],
+                        initialData: const [],
                         value: AccessRightDatabaseService().functionlist),
                     StreamProvider<List<accessRight>>.value(
-                        initialData: [],
+                        initialData: const [],
                         value: AccessRightDatabaseService().accessdatalist),
                   ],
                   child: SingleChildScrollView(

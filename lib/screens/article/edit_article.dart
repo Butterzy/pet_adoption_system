@@ -1,13 +1,10 @@
+// ignore_for_file: must_be_immutable, use_function_type_syntax_for_parameters
+
 import 'dart:io';
 
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:pet_adoption_system/models/article.dart';
-import 'package:pet_adoption_system/models/post.dart';
 import 'package:pet_adoption_system/services/article_database.dart';
-import 'package:pet_adoption_system/services/post_database.dart';
 import 'package:pet_adoption_system/shared/constants.dart';
 
 class EditArticle extends StatefulWidget {
@@ -65,7 +62,7 @@ class _EditArticleState extends State<EditArticle> {
                             ElevatedButton(
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
-                                  String time = DateTime.now().toString();
+                               
                                   setState(() => isLoading = true);
                                   ArticleData articleData = ArticleData(
                                     article_title: titleController.text,

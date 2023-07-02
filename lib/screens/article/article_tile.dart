@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:pet_adoption_system/models/access_right.dart';
 import 'package:pet_adoption_system/models/article.dart';
@@ -65,7 +67,7 @@ class ArticleTile extends StatelessWidget {
                                     bottomLeft: Radius.circular(50.0),
                                     bottomRight: Radius.circular(50.0)), // Image border
                               child: SizedBox.fromSize(
-                                size: Size.fromRadius(48), // Image radius
+                                size: const Size.fromRadius(48), // Image radius
                                 child: Image.network(
                         articleData.article_image!,
                         fit: BoxFit.fill,
@@ -91,7 +93,7 @@ class ArticleTile extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: Theme.of(context)
                                     .textTheme
-                                    .headline5!
+                                    .headlineSmall!
                                     .copyWith(color: Colors.indigo),
                                     
                                 ),
@@ -125,80 +127,78 @@ class ArticleTile extends StatelessWidget {
         builder: (context) {
           return Wrap(
             children: <Widget>[
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding:
-                          const EdgeInsets.fromLTRB(150.0, 20.0, 150.0, 20.0),
-                      child: Container(
-                          height: 5.0,
-                          width: 80.0,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius: const BorderRadius.all(
-                                  Radius.circular(8.0)))),
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding:
+                        const EdgeInsets.fromLTRB(150.0, 20.0, 150.0, 20.0),
+                    child: Container(
+                        height: 5.0,
+                        width: 80.0,
+                        decoration: BoxDecoration(
+                            color: Colors.grey[400],
+                            borderRadius: const BorderRadius.all(
+                                Radius.circular(8.0)))),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const BoxDecoration(
+                        border:
+                            Border(bottom: BorderSide(color: Colors.indigo))),
+                    padding: const EdgeInsets.only(bottom: 15.0),
+                    child: const Text(
+                      'Edit ',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 18.0, color: Colors.indigo),
                     ),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      decoration: const BoxDecoration(
-                          border:
-                              Border(bottom: BorderSide(color: Colors.indigo))),
-                      padding: const EdgeInsets.only(bottom: 15.0),
-                      child: const Text(
-                        'Edit ',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18.0, color: Colors.indigo),
-                      ),
-                    ),
-                    InkWell(
-                      child: _buildListItem('Edit Article', context),
-                      onTap: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => EditArticle(
-                                      articleData: articleData,
-                                    )));
-                      },
-                    ),
-                    const SizedBox(width: 10.0),
-                    InkWell(
-                      child: _buildDeleteItem(context),
-                      onTap: () {
-                        Navigator.pop(context);
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) => AlertDialog(
-                            title: const Text('Are you Sure?'),
-                            elevation: 3.0,
-                            actions: [
-                              TextButton(
-                                  onPressed: () {
-                                    ArticleDatabaseService(
-                                            articleid: articleData.article_ID)
-                                        .deleteArticle()
-                                        .whenComplete(() {
-                                      showFailedSnackBar(
-                                          'Article Deleted', context);
-                                      Navigator.of(context).pop();
-                                    }).catchError((e) => showFailedSnackBar(
-                                            e.toString(), context));
-                                  },
-                                  child: const Text('Yes')),
-                              TextButton(
-                                  onPressed: () {
+                  ),
+                  InkWell(
+                    child: _buildListItem('Edit Article', context),
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EditArticle(
+                                    articleData: articleData,
+                                  )));
+                    },
+                  ),
+                  const SizedBox(width: 10.0),
+                  InkWell(
+                    child: _buildDeleteItem(context),
+                    onTap: () {
+                      Navigator.pop(context);
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Are you Sure?'),
+                          elevation: 3.0,
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  ArticleDatabaseService(
+                                          articleid: articleData.article_ID)
+                                      .deleteArticle()
+                                      .whenComplete(() {
+                                    showFailedSnackBar(
+                                        'Article Deleted', context);
                                     Navigator.of(context).pop();
-                                  },
-                                  child: const Text('No'))
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
+                                  }).catchError((e) => showFailedSnackBar(
+                                          e.toString(), context));
+                                },
+                                child: const Text('Yes')),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('No'))
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           );
@@ -247,52 +247,50 @@ class ArticleTile extends StatelessWidget {
             bottomNavigationBar: BottomAppBar(
               color: Colors.white,
               child: SingleChildScrollView(
-                child: Container(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding:
-                            const EdgeInsets.fromLTRB(150.0, 20.0, 150.0, 20.0),
-                        child: Container(
-                            height: 5.0,
-                            width: 80.0,
-                            decoration: BoxDecoration(
-                                color: Colors.grey[400],
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(8.0)))),
-                      ),
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding:
+                          const EdgeInsets.fromLTRB(150.0, 20.0, 150.0, 20.0),
+                      child: Container(
+                          height: 5.0,
+                          width: 80.0,
+                          decoration: BoxDecoration(
+                              color: Colors.grey[400],
+                              borderRadius: const BorderRadius.all(
+                                  Radius.circular(8.0)))),
+                    ),
 
-                      //---------------------------------PHOTO------------------------------------
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: const EdgeInsets.all(15.0),
-                        child: Image.network(
-                          articleData.article_image!,
-                          fit: BoxFit.fill,
-                        ),
+                    //---------------------------------PHOTO------------------------------------
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      padding: const EdgeInsets.all(15.0),
+                      child: Image.network(
+                        articleData.article_image!,
+                        fit: BoxFit.fill,
                       ),
-                      //--------------------------------PET INFO------------------------------------
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: ExpansionTile(
-                          initiallyExpanded: true,
-                          title: Text(
-                            articleData.article_title!,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline6!
-                                .copyWith(color: Colors.indigo),
-                          ),
-                          children: [
-                            SingleChildScrollView(
-                              child: Text('${articleData.article_content}'),
-                            )
-                          ],
+                    ),
+                    //--------------------------------PET INFO------------------------------------
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: ExpansionTile(
+                        initiallyExpanded: true,
+                        title: Text(
+                          articleData.article_title!,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6!
+                              .copyWith(color: Colors.indigo),
                         ),
-                      )
-                    ],
-                  ),
+                        children: [
+                          SingleChildScrollView(
+                            child: Text('${articleData.article_content}'),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
                 ),
 
                 //---------------------------END OF NARVAR----------------------
