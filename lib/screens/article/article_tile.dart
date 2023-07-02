@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:pet_adoption_system/models/access_right.dart';
 import 'package:pet_adoption_system/models/article.dart';
 import 'package:pet_adoption_system/models/user.dart';
