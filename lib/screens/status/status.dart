@@ -88,6 +88,7 @@ class _StatusState extends State<Status> {
             right: 10,
             child: Stack(children: [
               Container(
+                
                 height: MediaQuery.of(context).size.height - 250,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(

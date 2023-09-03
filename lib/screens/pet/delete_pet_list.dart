@@ -72,7 +72,7 @@ class _DeletePetListState extends State<DeletePetList> {
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
-              child: Text('There are no pet post for this pet',
+              child: Text('There are no existing posts for this pet',
                   style: Theme.of(context)
                       .textTheme
                       .headline6!

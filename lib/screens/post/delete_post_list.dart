@@ -42,9 +42,9 @@ class _DeletePostListState extends State<DeletePostList> {
         }
       }
 
-      debugPrint('total registers in db : ${registerData.length}');
+     /*  debugPrint('total registers in db : ${registerData.length}');
       debugPrint('total registers of this post: ${postRegisteredData.length}');
-      debugPrint('this acc user registered  : ${userRegisteredData.length}');
+      debugPrint('this acc user registered  : ${userRegisteredData.length}'); */
       if (widget.isMyApplication) {
         return ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
@@ -88,7 +88,7 @@ class _DeletePostListState extends State<DeletePostList> {
             Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Text(
-                  'There are no application for this post',
+                  'There are no existing applications associated with this post',
                   style: Theme.of(context)
                       .textTheme
                       .headline6!

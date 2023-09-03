@@ -837,9 +837,7 @@ class _StatusTileState extends State<StatusTile> {
     return Container(
       width: MediaQuery.of(context).size.width / 2.5,
       height: 50,
-      decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: Colors.grey, width: 0.5)),
-      ),
+      
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -80,7 +80,7 @@ class _DeletePetState extends State<DeletePet> {
                               width: 530,
                               child:
                                   Image.asset('assets/images/readycat.png'))),
-                                  Positioned(
+                      Positioned(
                           bottom: 0.0,
                           child: Container(
                             height: MediaQuery.of(context).size.height / 14,
@@ -98,13 +98,15 @@ class _DeletePetState extends State<DeletePet> {
                               ],
                             ),
                             child: Center(
-                              child: Text(
-                                'Please make sure there are no pet post before you delete the pet ',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline5!
-                                    .copyWith(color: Colors.white),
-                                
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 10.0),
+                                child: Text(
+                                  'Please ensure that there are no existing pet posts before delete the pet',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline5!
+                                      .copyWith(color: Colors.white),
+                                ),
                               ),
                             ),
                           )),
@@ -119,7 +121,7 @@ class _DeletePetState extends State<DeletePet> {
                               Row(
                                 children: <Widget>[
                                   ContainerSelection(context,
-                                      PostSwitch.upcoming, 'Active Poast'),
+                                      PostSwitch.upcoming, 'Active Post'),
                                   ContainerSelection(context,
                                       PostSwitch.expired, 'Expired Post'),
                                 ],

@@ -4,8 +4,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:pet_adoption_system/models/access_right.dart';
 import 'package:pet_adoption_system/models/article.dart';
 
-
-
 import 'package:pet_adoption_system/models/user.dart';
 import 'package:pet_adoption_system/screens/article/article_list.dart';
 import 'package:pet_adoption_system/services/access_right_database.dart';
@@ -39,16 +37,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 // Max Size Widget
 
                 Container(
-                                height: MediaQuery.of(context).size.height,
-                                width: MediaQuery.of(context).size.width,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage("assets/images/background.png"),
-                                    opacity: 0.1,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/background.png"),
+                      opacity: 0.1,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
 
                 Positioned(
                     child: Container(
@@ -214,12 +212,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             initialData: []),
                         StreamProvider<List<function>>.value(
                             initialData: [],
-                            value:
-                                AccessRightDatabaseService().functionlist),
+                            value: AccessRightDatabaseService().functionlist),
                         StreamProvider<List<accessRight>>.value(
                             initialData: [],
-                            value: AccessRightDatabaseService()
-                                .accessdatalist),
+                            value: AccessRightDatabaseService().accessdatalist),
                       ],
                       child: SingleChildScrollView(
                         child: Column(
@@ -259,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<int> getTotalPets() async {
     final CollectionReference petsCollection =
-        FirebaseFirestore.instance.collection('pets');
+        FirebaseFirestore.instance.collection('posts');
     QuerySnapshot snapshot = await petsCollection.get();
     int count = snapshot.size;
     return count;
